@@ -104,3 +104,8 @@ h2 .create-btn a {
 h2 .create-btn a:hover {
     text-decoration: underline;
 }
+
+.signin-link {
+    color: #fff; /* Blue color for the link */
+    text-decoration: none; /* Remove underline from the link */
+}
