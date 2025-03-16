@@ -14,7 +14,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from .form import ForgetPassword
 from django.utils.http import urlsafe_base64_decode
 
-from .form import ResetPasswordForm
+from .form import ResetPasswordForm, CustomUserCreationForm
+
 
 
 
@@ -25,13 +26,11 @@ class HomeView(View):
 
 class CreateUserView(View):
     def get(self, request):
-        form = UserCreationForm(initial={"username": "","email":"","password1": "", "password2": "" })
+        form = CustomUserCreationForm()
         return render(request, "CreateUserScreen.html", {"form": form})
 
     def post(self, request):
-        form = UserCreationForm(request.POST)
-        import pdb
-        pdb.set_trace()
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -106,7 +105,6 @@ class ResetPasswordValidateView(View):
         return redirect("login")
 
 class ResetPasswordView(View):
-
     def get(self, request):
         form = ResetPasswordForm()
         return render(request, "reset_password.html",{"form": form})
