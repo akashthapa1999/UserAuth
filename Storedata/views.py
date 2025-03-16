@@ -14,11 +14,11 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.views import LoginView, LogoutView
 from .form import ForgetPassword
 from django.utils.http import urlsafe_base64_decode
-
 from .form import ResetPasswordForm, CustomUserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-
-class HomeView(View):
+class HomeView(LoginRequiredMixin,View):
+    login_url = '/Login/'
     def get(self, request):
         return render(request, "HomeScreen.html")
 
@@ -128,7 +128,8 @@ class ResetPasswordValidateView(View):
             return redirect("Login")
 
 
-class ResetPasswordView(View):
+class ResetPasswordView(View, LoginRequiredMixin):
+    login_url = '/Login/'
     def get(self, request, uidb64, token):
         try:
             uid = int(urlsafe_base64_decode(uidb64))
