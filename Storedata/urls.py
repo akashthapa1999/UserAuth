@@ -5,9 +5,10 @@ urlpatterns = [
     path('', HomeView.as_view(), name='Home'),
     path('CreateUser/', CreateUserView.as_view(), name='CreateUser'),
     path('Login/', LoginUserView.as_view(), name='Login'),
-    path('ForgotPassword/', ForgotPasswordView.as_view(), name='ForgotPassword'),
     path('Logout/', UserLogoutView.as_view(), name='Logout'),
+
+    path('ForgotPassword/', ForgotPasswordView.as_view(), name='ForgotPassword'),
     path('ResetPassword/', ResetPasswordView.as_view(), name='ResetPassword'),
-    path('reset/<str:uidb64>/<str:token>/', ResetPasswordValidateView.as_view(), name='ResetPasswordValidate'),
+    path("reset-password/<uidb64>/<token>/", ResetPasswordValidateView.as_view(), name="reset_password_validate"),
 
 ]

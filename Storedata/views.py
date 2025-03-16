@@ -68,13 +68,13 @@ class ForgotPasswordView(View):
                 messages.warning(request, "Your email address is not verified.")
         else:
             messages.error(request, "Account with this email does not exist.")
-        return redirect("ForgotPassword")
+        return redirect("ResetPasswordValidate")
 
     def send_password_reset_email(self, request, User):
         current_site = get_current_site(request)
         mail_subject = "Reset your password | C3D"
         message = render_to_string(
-            "ResetpasswordEmail.html",
+            "ForgotPasswordScreen/SetResetPassword.html",
             {
                 "user": User,
                 "domain": current_site.domain,
