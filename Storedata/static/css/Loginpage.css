@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+  }
+
+  .sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .fullsign {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+
+  .sign1 h1 {
+    text-align: center;
+    color: #333;
+  }
+
+  .sign2 {
+    margin-top: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #337ab7;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+
+  .creatbtn a {
+    color: white;
+    text-decoration: none;
+
+  }
+
+  .creatbtn {
+    margin-top: 10px;
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .creatbtn a:hover {
+    color: white;
+
+  }

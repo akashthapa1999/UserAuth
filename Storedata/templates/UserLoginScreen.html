@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login User</title>
+    <link rel="stylesheet" href="../static/css/LoginPage.css" />
+  </head>
+
+  <body>
+    <div class="sign">
+      <div class="fullsign">
+        <div class="sign1">
+          <h1>Login Screen</h1>
+        </div>
+
+        <div class="sign2">
+          <form action="{% url 'Login' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+              <label for="username">Enter User Name</label>
+              <input
+                type="text"
+                value="{{ form.username.value }}"
+                name="{{ form.username.name }}"
+                placeholder="Enter User Name"
+              />
+              {% for error in form.username.errors %}
+              <span class="error">{{ error }}</span>
+              {% endfor %}
+            </div>
+
+            <div class="form-group">
+              <label for="id_password">Enter Password</label>
+              <input
+                type="password"
+                value="{{ form.password.value }}"
+                name="{{ form.password.name }}"
+                placeholder="Enter password"
+              />
+              {% for error in form.password.errors %}
+              <span class="error">{{ error }}</span>
+              {% endfor %}
+            </div>
+
+
+            {% if form.non_field_errors %}
+            <span class="error">{{ form.non_field_errors }}</span>
+            {% endif %}
+
+            <button type="submit">Log In</button>
+
+            <br /><br />
+
+            <a
+              href="{% url 'ForgotPassword' %}"
+              style="
+                color: blue;
+                font-size: 16px;
+                text-decoration: none;
+                border: 1px solid black;
+                padding: 5px;
+              "
+            >
+              Forgot Password
+            </a>
+            <br />
+
+            <h2>
+              Don't have an account?
+              <button class="creatbtn">
+                <a href="{% url 'CreateUser' %}">Create a New User</a>
+              </button>
+            </h2>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
